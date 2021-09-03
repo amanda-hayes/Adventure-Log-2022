@@ -1,0 +1,26 @@
+{
+  "name": "new-adventure-log",
+  "version": "1.0.0",
+  "description": "A virtual D&D experience that allows players to create characters, go on quests and fight monsters right from their own computers. Are you new to D&D and looking to learn more about the game before diving in to a full campaign? Are you looking to get your feet wet to find out if you even like it? Are you stuck at home or between campaigns and just want a little more dungeons in your life with possibly some dragons as well? Start your quest today with The Adventure Log!",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amanda-hayes/new-adventure-log.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/amanda-hayes/new-adventure-log/issues"
+  },
+  "homepage": "https://github.com/amanda-hayes/new-adventure-log#readme",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "mongoose": "^6.0.4"
+  }
+}
