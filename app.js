@@ -53,7 +53,7 @@ app.post("/register", async (req, res) => {
     // create user
     const user = await User.create({
       email,
-      password,
+      password: encryptedPassword,
     });
 
     // create token
@@ -86,6 +86,9 @@ app.post("/login", async (req, res) => {
     }
 
     const user = await User.findOne({ email });
+
+    // encrypt user PW
+    encryptedPassword = await bcrypt.hash(password, 10);
 
     if (user && (await bcrypt.compare(password, user.password))) {
       const token = jwt.sign({ email: user.email }, process.env.TOKEN_SECRET);
