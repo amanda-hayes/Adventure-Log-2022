@@ -3,15 +3,16 @@ const express = require("express");
 const app = express();
 const PORT = process.env.PORT || 3000;
 const User = require("./models/user");
-
-app.use(express.json());
-// app.use("/userRouter", userRouter);
-
 const mongoose = require("mongoose");
 const MONGOURI = process.env.MONGODB_URI;
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 
+app.use(express.json());
+
+/****************
+ *  MONGOOSE  *
+ ****************/
 mongoose.connection.on("error", (err) => {
   console.log(err.message + " is MongoDB not running?");
 });
@@ -24,7 +25,9 @@ mongoose.connection.once("open", () => {
   console.log("connected to mongoose");
 });
 
-// Register
+/*********************
+ *  ROUTE: REGISTER  *
+ *********************/
 app.post("/register", async (req, res) => {
   // register logic
   try {
@@ -71,7 +74,9 @@ app.post("/register", async (req, res) => {
   }
 });
 
-// Login
+/*********************
+ *  ROUTE: LOGIN  *
+ *********************/
 app.post("/login", (req, res) => {
   // login logic
 });
