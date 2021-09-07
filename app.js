@@ -59,16 +59,16 @@ app.post("/register", async (req, res) => {
     // create token
     const token = jwt.sign(
       {
-        email: User.email,
+        email: user.email,
       },
       process.env.TOKEN_SECRET
     );
 
-    // save token
+    // save user token
     user.token = token;
 
     // return new user
-    res.status(201).json(User);
+    res.status(201).json({ token, user });
   } catch (err) {
     console.log(err);
   }
@@ -77,8 +77,28 @@ app.post("/register", async (req, res) => {
 /*********************
  *  ROUTE: LOGIN  *
  *********************/
-app.post("/login", (req, res) => {
-  // login logic
+app.post("/login", async (req, res) => {
+  try {
+    const { email, password } = req.body;
+
+    if (!(email && password)) {
+      res.status(400).send("All fields are required");
+    }
+
+    const user = await User.findOne({ email });
+
+    if (user && (await bcrypt.compare(password, user.password))) {
+      const token = jwt.sign({ email: user.email }, process.env.TOKEN_SECRET);
+
+      user.token = token;
+
+      res.status(200).json(user);
+    }
+
+    res.status(400).send("invalid credentials");
+  } catch (err) {
+    console.log(err);
+  }
 });
 
 app.listen(PORT, () => {
