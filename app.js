@@ -7,8 +7,10 @@ const mongoose = require("mongoose");
 const MONGOURI = process.env.MONGODB_URI;
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
+const cors = require("cors");
 
 app.use(express.json());
+app.use(cors());
 
 /****************
  *  MONGOOSE  *
