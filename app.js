@@ -7,6 +7,7 @@ const mongoose = require("mongoose");
 const MONGOURI = process.env.MONGODB_URI;
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
+const middleware = require("./middleware");
 
 app.use(express.json());
 
@@ -102,6 +103,10 @@ app.post("/login", async (req, res) => {
   } catch (err) {
     console.log(err);
   }
+});
+
+app.get("/jwt-test", middleware.verify, (req, res) => {
+  res.status(200).json(req.user);
 });
 
 app.listen(PORT, () => {
