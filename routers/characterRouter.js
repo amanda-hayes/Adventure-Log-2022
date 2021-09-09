@@ -43,4 +43,32 @@ try {
   console.log(error);
 }
 
+/*****************************
+ *  ROUTE: SHOW CHAR DETAILS  *
+ *****************************/
+characters.get("/:id", async (req, res) => {
+  try {
+    const foundCharacter = await characterModel.findById(req.params.id);
+    console.log(foundCharacter);
+    res.status(200).json(foundCharacter);
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+/*******************
+ *  ROUTE: DELETE  *
+ *******************/
+
+characters.delete("/:id", async (req, res) => {
+  try {
+    const deletedCharacter = await characterModel.findByIdAndDelete(
+      req.params.id
+    );
+    res.status(200).json(deletedCharacter);
+  } catch (error) {
+    console.log(error);
+  }
+});
+
 module.exports = characters;
