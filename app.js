@@ -8,8 +8,10 @@ const MONGOURI = process.env.MONGODB_URI;
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 const middleware = require("./verify-token");
+const cors = require("cors");
 
 app.use(express.json());
+app.use(cors());
 
 app.get("/jwt-test", middleware.auth, (req, res) => {
   res.status(200).json(req.user);
