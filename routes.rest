@@ -1,7 +1,7 @@
-POST http://localhost:3000/login
+GET http://localhost:3000/jwt-test
 content-type: application/json
 
     {
-        "email": "email2@example.com",
+        "email": "email11@example.com",
         "password": "password"
     }
