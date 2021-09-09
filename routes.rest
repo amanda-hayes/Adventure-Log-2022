@@ -1,7 +1,9 @@
-GET http://localhost:3000/jwt-test
+GET http://localhost:3000/characters/dashboard
 content-type: application/json
 
     {
-        "email": "email11@example.com",
-        "password": "password"
+        "name": "Justin M",
+        "race": "Orc",
+        "characterClass": "Fighter",
+        "armorClass": "18"
     }
