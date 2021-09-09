@@ -1,9 +1,9 @@
-POST http://localhost:3000/characters/create
+GET http://localhost:3000/characters/dashboard
 content-type: application/json
 
     {
-        "name": "Travis M",
-        "race": "Elf",
+        "name": "Justin M",
+        "race": "Orc",
         "characterClass": "Fighter",
-        "armorClass": "16"
+        "armorClass": "18"
     }
