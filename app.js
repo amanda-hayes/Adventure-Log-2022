@@ -7,7 +7,7 @@ const mongoose = require("mongoose");
 const MONGOURI = process.env.MONGODB_URI;
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
-const middleware = require("./middleware");
+const middleware = require("./verify-token");
 
 app.use(express.json());
 
