@@ -1,7 +1,9 @@
-GET http://localhost:3000/jwt-test
+POST http://localhost:3000/characters/create
 content-type: application/json
 
     {
-        "email": "email11@example.com",
-        "password": "password"
+        "name": "Travis M",
+        "race": "Elf",
+        "characterClass": "Fighter",
+        "armorClass": "16"
     }

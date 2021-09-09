@@ -3,6 +3,7 @@ const express = require("express");
 const app = express();
 const PORT = process.env.PORT || 3000;
 const User = require("./models/user");
+const characterRouter = require("./routers/characterRouter");
 const mongoose = require("mongoose");
 const MONGOURI = process.env.MONGODB_URI;
 const jwt = require("jsonwebtoken");
@@ -12,6 +13,7 @@ const cors = require("cors");
 
 app.use(express.json());
 app.use(cors());
+app.use("/characters", characterRouter);
 
 app.get("/jwt-test", middleware.auth, (req, res) => {
   res.status(200).json(req.user);
