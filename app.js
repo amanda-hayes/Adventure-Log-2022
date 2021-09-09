@@ -11,6 +11,10 @@ const middleware = require("./middleware");
 
 app.use(express.json());
 
+app.get("/jwt-test", middleware.auth, (req, res) => {
+  res.status(200).json(req.user);
+});
+
 /****************
  *  MONGOOSE  *
  ****************/
@@ -103,10 +107,6 @@ app.post("/login", async (req, res) => {
   } catch (err) {
     console.log(err);
   }
-});
-
-app.get("/jwt-test", middleware.verify, (req, res) => {
-  res.status(200).json(req.user);
 });
 
 app.listen(PORT, () => {

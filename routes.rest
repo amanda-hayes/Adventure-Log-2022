@@ -2,6 +2,6 @@ GET http://localhost:3000/jwt-test
 content-type: application/json
 
     {
-        "email": "email4@example.com",
+        "email": "email11@example.com",
         "password": "password"
     }

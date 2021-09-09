@@ -1,14 +1,22 @@
 const jwt = require("jsonwebtoken");
 const tokenSecret = process.env.TOKEN_SECRET;
 
-exports.verify = (req, res, next) => {
-  const token = req.headers.authorization;
-  if (!token) res.status(403).json({ error: "please provide a token" });
-  else {
-    jwt.verify(token.split(" ")[1], tokenSecret, (err, value) => {
-      if (err) res.status(500).json({ error: "failed to authenticate token" });
-      req.user = value.data;
+/*******************
+ *  AUTHORIZATION  *
+ *******************/
+
+exports.auth = async (req, res, next) => {
+  const { authorization } = req.headers;
+  if (authorization) {
+    const token = authorization.split(" ")[1];
+    try {
+      const payload = await jwt.verify(token, tokenSecret);
+      req.user = payload;
       next();
-    });
+    } catch (error) {
+      res.status(400).json(error);
+    }
+  } else {
+    res.status(400).json(new Error("no token in header"));
   }
 };
