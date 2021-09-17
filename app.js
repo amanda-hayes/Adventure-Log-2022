@@ -4,6 +4,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 const userRouter = require("./routers/userRouter");
 const characterRouter = require("./routers/characterRouter");
+const userCharacterRouter = require("./routers/userCharacterRouter");
 const mongoose = require("mongoose");
 const MONGOURI = process.env.MONGODB_URI;
 const cors = require("cors");
@@ -12,6 +13,7 @@ app.use(express.json());
 app.use(cors());
 app.use("/characters", characterRouter);
 app.use("/users", userRouter);
+app.use("/userCharacters", userCharacterRouter);
 
 /****************
  *  MONGOOSE  *
