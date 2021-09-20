@@ -4,7 +4,7 @@ import Home from "./pages/Home";
 import Dashboard from "./pages/Dashboard";
 import Login from "./pages/Login";
 
-function App() {
+const App = () => {
   return (
     <div className="App">
       <header className="App-header">
@@ -17,6 +17,6 @@ function App() {
       </header>
     </div>
   );
-}
+};
 
 export default App;
