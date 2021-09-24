@@ -1,7 +1,7 @@
 require("dotenv").config();
 const express = require("express");
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5000;
 const userRouter = require("./routers/userRouter");
 const characterRouter = require("./routers/characterRouter");
 const userCharacterRouter = require("./routers/userCharacterRouter");
