@@ -22,13 +22,14 @@ const RegisterForm = () => (
           .oneOf([Yup.ref("password"), null], "Passwords must match")
           .required("Confirm Password is required"),
       })}
-      onSubmit={async () => {
+      onSubmit={async (values) => {
         try {
           const response = await fetch("http://localhost:5000/users/register", {
             method: "POST",
             headers: {
               "Content-type": "application/json",
             },
+            body: JSON.stringify(values),
           });
           const data = await response.json();
           console.log(data);
