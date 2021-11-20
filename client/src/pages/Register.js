@@ -2,7 +2,7 @@ import "../App.css";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
 
-const RegisterForm = () => (
+const RegisterForm = (props) => (
   <>
     <h1>Register</h1>
     <Formik
@@ -34,6 +34,8 @@ const RegisterForm = () => (
           });
           const data = await response.json();
           console.log(data);
+          alert("Welcome!");
+          props.history.push("/Dashboard");
         } catch (error) {
           console.error(error);
         }
