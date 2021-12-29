@@ -38,6 +38,8 @@ const RegisterForm = (props) => (
           props.history.push("/Dashboard");
         } catch (error) {
           console.error(error);
+          // would be better to have a modal here
+          alert("User with this email already exists.");
         }
       }}
     >
