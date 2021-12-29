@@ -2,7 +2,7 @@ import "../App.css";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
 
-const RegisterForm = () => (
+const RegisterForm = (props) => (
   <>
     <h1>Register</h1>
     <Formik
@@ -15,6 +15,7 @@ const RegisterForm = () => (
         email: Yup.string()
           .email("Email is invalid")
           .required("Email is required"),
+
         password: Yup.string()
           .min(6, "Password must be at least 6 characters")
           .required("Password is required"),
@@ -33,8 +34,12 @@ const RegisterForm = () => (
           });
           const data = await response.json();
           console.log(data);
+          alert("Welcome!");
+          props.history.push("/Dashboard");
         } catch (error) {
           console.error(error);
+          // would be better to have a modal here
+          alert("User with this email already exists.");
         }
       }}
     >
