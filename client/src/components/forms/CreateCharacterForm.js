@@ -1,5 +1,6 @@
 import "../../App.css";
-import { Formik, Field, Form, ErrorMessage } from "formik";
+import { Formik, Field, Form } from "formik";
+import RolledStats from "../RolledStats";
 // import * as Yup from "yup";
 
 const CreateCharacterForm = (props) => (
@@ -10,6 +11,9 @@ const CreateCharacterForm = (props) => (
         race: "",
         pronouns: "",
         characterClassSelect: "",
+        battleCryInput: "",
+        imageSelect: "",
+        backstoryTextarea: "",
         strengthInput: "",
         dexInput: "",
         conInput: "",
@@ -20,9 +24,6 @@ const CreateCharacterForm = (props) => (
         weaponSelect: "",
         attackSelect: "",
         armorClassSelect: "",
-        battleCryInput: "",
-        imageSelect: "",
-        backstoryTextarea: "",
       }}
       onSubmit={async (values) => {
         try {
@@ -54,13 +55,12 @@ const CreateCharacterForm = (props) => (
               name="name"
               type="text"
               className={
-                "form-control" +
-                (errors.name && touched.name ? " is-invalid" : "")
+                "form-row" + (errors.name && touched.name ? " is-invalid" : "")
               }
             />
             <br />
-            <label htmlFor="name">Race</label>
-            <Field as="select" name="race" className="form-control">
+            <label htmlFor="race">Race</label>
+            <Field as="select" name="race" className="formRow">
               <option value="human">Human</option>
               <option value="half-elf">Half-Elf</option>
               <option value="gnome">Gnome</option>
@@ -68,16 +68,16 @@ const CreateCharacterForm = (props) => (
               <option value="Half-Orc">Half-Orc</option>
               <option value="Aasimar">Aasimar</option>
             </Field>
-            <label htmlFor="name">Pronouns</label>
-            <Field as="select" name="pronouns" className="form-control">
+            <label htmlFor="pronouns">Pronouns</label>
+            <Field as="select" name="pronouns" className="formRow">
               <option value="she/her">she/her</option>
               <option value="he/him">he/him</option>
               <option value="they/them">they/them</option>
               <option value="other">Other</option>
               <option value="none">None</option>
             </Field>
-            <label htmlFor="name">Class</label>
-            <Field as="select" name="class" className="form-control">
+            <label htmlFor="class-select">Class</label>
+            <Field as="select" name="class" className="formRow">
               <option value="fighter">Fighter</option>
               <option value="wizard">Wizard</option>
               <option value="rogue">Rogue</option>
@@ -86,6 +86,13 @@ const CreateCharacterForm = (props) => (
               <option value="druid">Druid</option>
               <option value="paladin">Paladin</option>
             </Field>
+            <label htmlFor="image">Character Image</label>
+            <Field name="image" as="select" className="formRow" />
+            <label htmlFor="battle-cry">Battle Cry</label>
+            <Field name="battle-cry" type="text" className="formRow" />
+            <label htmlFor="backstory">Backstory (optional)</label>
+            <Field name="backstory" as="textarea" className="formRow" />
+            <RolledStats />
             <div className="form-group">
               <button
                 type="submit"
