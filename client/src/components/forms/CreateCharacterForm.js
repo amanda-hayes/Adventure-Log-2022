@@ -1,6 +1,7 @@
 import "../../App.css";
 import { Formik, Field, Form } from "formik";
 import RolledStats from "../RolledStats";
+import ImageSelect from "../ImageSelect";
 // import * as Yup from "yup";
 
 const CreateCharacterForm = (props) => (
@@ -86,8 +87,7 @@ const CreateCharacterForm = (props) => (
               <option value="druid">Druid</option>
               <option value="paladin">Paladin</option>
             </Field>
-            <label htmlFor="image">Character Image</label>
-            <Field name="image" as="select" className="formRow" />
+            <ImageSelect />
             <label htmlFor="battle-cry">Battle Cry</label>
             <Field name="battle-cry" type="text" className="formRow" />
             <label htmlFor="backstory">Backstory (optional)</label>
