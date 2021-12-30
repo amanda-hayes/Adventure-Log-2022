@@ -15,7 +15,7 @@ const characterSchema = Schema({
   weapon: { type: String, required: false },
   attack: { type: String, required: false },
   armorClass: { type: Number, required: true },
-  catchphrase: { type: String, required: false },
+  battleCry: { type: String, required: false },
   image: { type: String, required: false },
   backstory: { type: String, required: false },
   initiative: { type: Number, required: false },
