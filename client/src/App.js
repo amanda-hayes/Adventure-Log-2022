@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import Dashboard from "./pages/Dashboard";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import CreateNewCharacter from "./pages/characters/CreateNewCharacter";
 
 const App = () => {
   return (
@@ -14,6 +15,11 @@ const App = () => {
           <Route path="/Dashboard" exact component={Dashboard} />
           <Route path="/Login" exact component={Login} />
           <Route path="/Register" exact component={Register} />
+          <Route
+            path="/CreateNewCharacter"
+            exact
+            component={CreateNewCharacter}
+          />
         </Switch>
       </header>
     </div>
