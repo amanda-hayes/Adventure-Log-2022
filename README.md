@@ -11,3 +11,7 @@ Players begin by visiting the homepage and clicking "Start your Adventure." This
 This app was created using Express, Nodejs, React, MongoDB, Bootstrap and Cypress. The API on the Express server has the RESTful routes that make the full CRUD functionality possible. I used bcrypt and json webtoken for user authentication and authorization and connected to Mongoose to manage MongoDB. On the client side, I included React Router Dom and React Boostrap for routing and styling, respectively.
 
 If you have questions or issues about the game, feel free to reach out and send me a message!
+
+# Updates
+
+July, 19, 2022: In order to make a more object-oriented and robust app, I separated some of the character details into separate models.
