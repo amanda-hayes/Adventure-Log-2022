@@ -1,17 +1,14 @@
 const { Schema, model } = require("mongoose");
 import characterClassModel from "./characterClassModel";
+import raceModel from "./raceModel";
+import statsModel from "./statsModel";
 
 const characterModel = Schema({
   name: { type: String, required: true },
-  race: { type: String, required: true },
+  race: { type: raceModel, required: true },
   pronouns: { type: String, required: false },
   characterClass: { type: characterClassModel, required: true },
-  strength: { type: String, required: false },
-  dexterity: { type: String, required: false },
-  constitution: { type: String, required: false },
-  intelligence: { type: String, required: false },
-  wisdom: { type: String, required: false },
-  charisma: { type: String, required: false },
+  stats: { type: statsModel, required: true },
   hp: { type: Number, required: false },
   weapon: { type: String, required: false },
   attack: { type: String, required: false },
