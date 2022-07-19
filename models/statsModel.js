@@ -9,3 +9,5 @@ const statsModel = Schema({
   wisdom: { type: String, required: false },
   charisma: { type: String, required: false },
 });
+
+module.exports = model("Stats", statsModel);
