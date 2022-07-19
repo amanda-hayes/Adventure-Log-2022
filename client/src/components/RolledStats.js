@@ -24,9 +24,6 @@ const RolledStats = () => (
     <Field type="text" name="charisma"></Field>
     <label htmlFor="hp">Hit Points</label>
     <Field type="text" name="hp"></Field>
-    <button type="submit" className="btn btn-primary mr-2">
-      Roll Stats
-    </button>
   </>
 );
 

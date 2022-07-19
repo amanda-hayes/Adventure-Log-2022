@@ -93,6 +93,9 @@ const CreateCharacterForm = (props) => (
             <label htmlFor="backstory">Backstory (optional)</label>
             <Field name="backstory" as="textarea" className="formRow" />
             <RolledStats />
+            <button type="submit" className="btn btn-primary mr-2">
+              Roll Stats
+            </button>
             <div className="form-group">
               <button
                 type="submit"
