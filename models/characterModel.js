@@ -1,10 +1,11 @@
 const { Schema, model } = require("mongoose");
+import characterClassModel from "./characterClassModel";
 
-const characterSchema = Schema({
+const characterModel = Schema({
   name: { type: String, required: true },
   race: { type: String, required: true },
   pronouns: { type: String, required: false },
-  characterClass: { type: String, required: true },
+  characterClass: { type: characterClassModel, required: true },
   strength: { type: String, required: false },
   dexterity: { type: String, required: false },
   constitution: { type: String, required: false },
@@ -22,4 +23,4 @@ const characterSchema = Schema({
   createdBy: { type: String, required: false },
 });
 
-module.exports = model("Character", characterSchema);
+module.exports = model("Character", characterModel);
