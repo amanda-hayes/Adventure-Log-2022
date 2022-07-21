@@ -5,3 +5,5 @@ const attackModel = Schema({
   Name: { type: String, required: true },
   Damage: { type: Number, required: true },
 });
+
+module.exports = model("Attack", attackModel);

@@ -1,6 +1,6 @@
 const express = require("express");
 const userCharacters = express.Router();
-const userCharacterModel = require("../models/userCharacters");
+// const userCharacterModel = require("../models/userCharacters");
 
 /******************
  *  ROUTE: POST  *
