@@ -3,7 +3,7 @@ const users = express.Router();
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 const middleware = require("../verify-token");
-const User = require("../models/user");
+const User = require("../models/userModel");
 
 users.get("/jwt-test", middleware.auth, (req, res) => {
   res.status(200).json(req.user);

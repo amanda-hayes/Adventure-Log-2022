@@ -1,6 +1,6 @@
 const express = require("express");
 const characters = express.Router();
-const characterModel = require("../models/character");
+const characterModel = require("../models/characterModel");
 
 /******************
  *  ROUTE: POST  *
