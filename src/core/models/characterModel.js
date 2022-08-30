@@ -1,16 +1,9 @@
-const { Schema, model } = require("mongoose");
 const characterClassModel = require("./characterClassModel").schema;
 const raceModel = require("./raceModel").schema;
 const statsModel = require("./statsModel").schema;
 const weaponModel = require("./weaponModel").schema;
 const attackModel = require("./attackModel").schema;
 const userModel = require("./userModel").schema;
-
-// import raceModel from "./raceModel";
-// import statsModel from "./statsModel";
-// import weaponModel from "./weaponModel";
-// import attackModel from "./attackModel";
-// import userModel from "./userModel";
 
 const characterModel = Schema({
   name: { type: String, required: true },
